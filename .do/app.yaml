@@ -4,8 +4,6 @@ alerts:
 domains:
 - domain: iframely.dothnews.com.br
   type: PRIMARY
-- domain: iframely-dev.dothnews.com.br
-  type: ALIAS
 envs:
 - key: NODE_ENV
   scope: RUN_AND_BUILD_TIME
@@ -13,12 +11,13 @@ envs:
 - key: BASE_URL
   scope: RUN_AND_BUILD_TIME
   value: https://iframely.dothnews.com.br
-- key: FB_APP_ID
-  scope: RUN_AND_BUILD_TIME
-  value: 183178644756531
 - key: FB_APP_SECRET
   scope: RUN_AND_BUILD_TIME
-  value: preencha-com-o-seu-secret
+  type: SECRET
+  value: preencha com o seu app secret
+- key: FB_APP_ID
+  scope: RUN_AND_BUILD_TIME
+  value: "183178644756531"
 ingress:
   rules:
   - component:
@@ -46,9 +45,9 @@ services:
   github:
     branch: main
     deploy_on_push: true
-    repo: onovaes/iframely
+    repo: dothcom/iframely
   http_port: 8061
   instance_count: 1
-  instance_size_slug: basic-xxs
+  instance_size_slug: basic-xs
   name: iframely
   source_dir: /
