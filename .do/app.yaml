@@ -10,6 +10,15 @@ envs:
 - key: NODE_ENV
   scope: RUN_AND_BUILD_TIME
   value: production
+- key: BASE_URL
+  scope: RUN_AND_BUILD_TIME
+  value: https://iframely.dothnews.com.br
+- key: FB_APP_ID
+  scope: RUN_AND_BUILD_TIME
+  value: 183178644756531
+- key: FB_APP_SECRET
+  scope: RUN_AND_BUILD_TIME
+  value: preencha-com-o-seu-secret
 ingress:
   rules:
   - component:

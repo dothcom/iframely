@@ -20,7 +20,7 @@ export default {
     RICH_LOG_ENABLED: false,
 
     // For embeds that require render, baseAppUrl will be used as the host.
-    baseAppUrl: "https://iframely.dothnews.com.br", // use "https://yourdomain.com/path" where you have Iframely in your reverse proxy
+    baseAppUrl: process.env.BASE_URL , // use "https://yourdomain.com/path" where you have Iframely in your reverse proxy
     relativeStaticUrl: "/r",
 
     // Or just skip built-in renders altogether
@@ -74,9 +74,10 @@ export default {
     // 0 = 'never expire' for memcached & node-cache to let cache engine decide itself when to evict the record
     // 0 = 'no cache' for redis. Use high enough (e.g. 365*24*60*60*1000) ttl for similar 'never expire' approach instead
 
-    CLUSTER_WORKER_RESTART_ON_MEMORY_USED: 200 * 1024 * 1024, // 200Mb
+  
+    CLUSTER_WORKER_RESTART_ON_PERIOD: 8 * 3600 * 1000, // 8 hours.
+    CLUSTER_WORKER_RESTART_ON_MEMORY_USED: 200 * 1024 * 1024, // 200MB.
 
-    CLUSTER_WORKER_RESTART_ON_PERIOD: 2 * 3600 * 1000, // 2 hours
 
     // If there's no response from remote server, the timeout will occur after
     RESPONSE_TIMEOUT: 5 * 1000, //ms
@@ -92,7 +93,7 @@ export default {
 
             // TODO: get your access Insagtam token as described 
             // on https://developers.facebook.com/docs/instagram/oembed/                
-            access_token: '',   // The simplest way is 
+            access_token: `${process.env.FB_APP_ID}|${process.env.FB_APP_SECRET}` ,   // The simplest way is 
                                 // to use `{app-id}|{app secret}` as access token
 
             // Add any other optional params
@@ -103,7 +104,7 @@ export default {
         params: {
             // TODO: get your access token as described 
             // on https://developers.facebook.com/docs/plugins/oembed                
-            access_token: '',   // The simplest way is 
+            access_token: `${process.env.FB_APP_ID}|${process.env.FB_APP_SECRET}`,   // The simplest way is 
                                 // to use `{app-id}|{app secret}` as access token
 
             // Add any other optional params
@@ -125,7 +126,7 @@ export default {
         params: {
             // TODO: get your access token as described 
             // on https://developers.facebook.com/docs/plugins/oembed                
-            access_token: '',   // The simplest way is 
+            access_token: `${process.env.FB_APP_ID}|${process.env.FB_APP_SECRET}`,   // The simplest way is 
                                 // to use `{app-id}|{app secret}` as access token
 
             // Add any other optional params, like skip script tag and fb-root div
