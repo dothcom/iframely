@@ -93,7 +93,7 @@ export default {
 
             // TODO: get your access Insagtam token as described 
             // on https://developers.facebook.com/docs/instagram/oembed/                
-            access_token: process.env.FB_ACCESS_TOKEN,   // The simplest way is 
+            access_token: `${process.env.FB_APP_ID}|${process.env.FB_APP_SECRET}` ,   // The simplest way is 
                                 // to use `{app-id}|{app secret}` as access token
 
             // Add any other optional params
@@ -104,7 +104,7 @@ export default {
         params: {
             // TODO: get your access token as described 
             // on https://developers.facebook.com/docs/plugins/oembed                
-            access_token: process.env.FB_ACCESS_TOKEN,   // The simplest way is 
+            access_token: `${process.env.FB_APP_ID}|${process.env.FB_APP_SECRET}`,   // The simplest way is 
                                 // to use `{app-id}|{app secret}` as access token
 
             // Add any other optional params
@@ -126,7 +126,7 @@ export default {
         params: {
             // TODO: get your access token as described 
             // on https://developers.facebook.com/docs/plugins/oembed                
-            access_token: process.env.FB_ACCESS_TOKEN,   // The simplest way is 
+            access_token: `${process.env.FB_APP_ID}|${process.env.FB_APP_SECRET}`,   // The simplest way is 
                                 // to use `{app-id}|{app secret}` as access token
 
             // Add any other optional params, like skip script tag and fb-root div
